@@ -7,24 +7,28 @@
   </head>
   <body>
     <div class="container">
-      <h1>Create a account</h1>
       <form action="" novalidate>
+        <h1>Create a account</h1>
         <fieldset>
           <div class="email">
             <label for="mail">E-mail</label>
-            <input type="email" id="mail" />
+            <input type="email" id="mail" required />
+            <p class="error"></p>
           </div>
           <div class="country">
             <label for="country">Country</label>
-            <input type="text" id="country" />
+            <input type="text" id="country" minlength="4" maxlength="56" required/>
+            <p class="error"></p>
           </div>
           <div class="postal-code">
             <label for="postal-code">Postal Code</label>
-            <input type="tel" id="postal-code" />
+            <input type="text" id="postal-code" pattern="^[A-Za-z0-9\s\-]{3,10}$" required/>
+            <p class="error"></p>
           </div>
           <div class="password">
             <label for="password">Password</label>
             <input type="password" id="password" />
+            <p class="error"></p>
           </div>
           <div class="password-confirm">
             <label for="password-confirm">Confirm Password</label>
