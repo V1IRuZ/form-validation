@@ -70,14 +70,11 @@ const passwordError = document.querySelector(".password > .error");
 passwordInput.addEventListener("blur", showPasswordError);
 
 function showPasswordError() {
-  // password has atleast one capital letter, one number and one symbol
-  const passWordRegex = /(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])/;
-
   if (passwordInput.validity.valueMissing) {
     passwordError.textContent = "You need to give password";
   } else if (passwordInput.validity.tooShort) {
     passwordError.textContent = "Password need to have atleast 8 characters";
-  } else if (!passWordRegex.test(passwordInput.value)) {
+  } else if (passwordInput.validity.patternMismatch) {
     passwordError.textContent =
       "You need to have one number, capital letter and symbol";
   } else {
@@ -103,26 +100,15 @@ function showConfirmPasswordError() {
     passwordConfirmInput.setCustomValidity("");
     passwordConfirmError.textContent = "";
   }
-
 }
 
-const submitError = document.querySelector(".form-submit > .error");
+const submitError = document.querySelector(".text");
 
 form.addEventListener("submit", (e) => {
-  console.log(form.checkValidity());
-  // if (emailError.textContent) {
-  //   submitError.textContent = "There is error with email";
-  // } else if (countryError.textContent) {
-  //   submitError.textContent = "There is error with country name";
-  // } else if (postalCodeError.textContent) {
-  //   submitError.textContent = "There is error with postal code";
-  // } else if (passwordError.textContent) {
-  //   submitError.textContent = "There is error with password";
-  // } else if (passwordConfirmError.textContent) {
-  //   submitError.textContent = "There is error with password confirmation";
-  // } else {
-  //   submitError.textContent = "Good job, you have now account!"
-  // }
-
+  if (!form.checkValidity()) {
+    submitError.textContent = "Error"
+  } else {
+    submitError.textContent = "Good job!"
+  }
   e.preventDefault();
 });

@@ -17,25 +17,44 @@
           </div>
           <div class="country">
             <label for="country">Country</label>
-            <input type="text" id="country" minlength="4" maxlength="56" required/>
+            <input
+              type="text"
+              id="country"
+              minlength="4"
+              maxlength="56"
+              required
+            />
             <p class="error"></p>
           </div>
           <div class="postal-code">
             <label for="postal-code">Postal Code</label>
-            <input type="text" id="postal-code" pattern="^[A-Za-z0-9\s\-]{3,10}$" required/>
+            <input
+              type="text"
+              id="postal-code"
+              pattern="^[A-Za-z0-9\s\-]{3,10}$"
+              required
+            />
             <p class="error"></p>
           </div>
           <div class="password">
             <label for="password">Password</label>
-            <input type="password" id="password" />
+            <input
+              type="password"
+              id="password"
+              minlength="8"
+              pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$"
+              required
+            />
             <p class="error"></p>
           </div>
           <div class="password-confirm">
             <label for="password-confirm">Confirm Password</label>
-            <input type="text" id="password-confirm" />
+            <input type="password" id="password-confirm" />
+            <p class="error"></p>
           </div>
-          <div>
+          <div class="form-submit">
             <button>Submit</button>
+            <p class="text"></p>
           </div>
         </fieldset>
       </form>
