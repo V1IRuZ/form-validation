@@ -114,7 +114,23 @@ fieldset > div {
   background-color: red;
   color: white;
   z-index: 1;
-  /* opacity: 0;
-  max-height: 0;
-  pointer-events: none; */
+  padding: 0 8px;
+}
+
+input {
+  outline: none;
+  border: 2px solid lightslategray;
+  border-radius: 10px;
+}
+
+input:user-invalid {
+  border-color: red;
+}
+
+input:focus:valid {
+  border-color: lawngreen;
+}
+
+input:focus {
+  border-color: rgb(71, 136, 233);
 }
